@@ -2,11 +2,11 @@ package api
 
 import (
 	"encoding/json"
+	"github.com/MukulLatiyan/task-manager-go/db"
+	"github.com/MukulLatiyan/task-manager-go/models"
 	"github.com/go-chi/chi"
 	"net/http"
 	"strconv"
-	"task_manager/db"
-	"task_manager/models"
 )
 
 func CreateNewTask(w http.ResponseWriter, r *http.Request) {
@@ -17,7 +17,7 @@ func CreateNewTask(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err = db.DB.Model(&newTask).Insert()
+	err = db.CreateTask(&newTask)
 	if err != nil {
 		http.Error(w, "Error inserting new task into the database", http.StatusInternalServerError)
 		return
@@ -28,8 +28,7 @@ func CreateNewTask(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetAllTheTasks(w http.ResponseWriter, r *http.Request) {
-	var allTasks []models.Task
-	err := db.DB.Model(&allTasks).Select()
+	allTasks, err := db.GetAllTasks()
 	if err != nil {
 		http.Error(w, "Error while retrieving all tasks from the database", http.StatusInternalServerError)
 		return
@@ -49,8 +48,7 @@ func GetIndividualTasks(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var singleTask models.Task
-	err = db.DB.Model(&singleTask).Where("id = ?", taskID).Select()
+	singleTask, err := db.GetTaskByID(taskID)
 	if err != nil {
 		http.Error(w, "Error retrieving task from the database", http.StatusInternalServerError)
 		return
@@ -77,7 +75,7 @@ func UpdateTaskByTaskID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err = db.DB.Model(&singleTask).Where("id = ?", taskID).Update()
+	err = db.UpdateTaskByID(taskID, &singleTask)
 	if err != nil {
 		http.Error(w, "Error updating task in the database", http.StatusInternalServerError)
 		return
@@ -94,7 +92,7 @@ func DeleteTaskByTaskID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err = db.DB.Model(&models.Task{}).Where("id = ?", taskID).Delete()
+	err = db.DeleteTaskByID(taskID)
 	if err != nil {
 		http.Error(w, "Error while deleting a task from the database", http.StatusInternalServerError)
 		return

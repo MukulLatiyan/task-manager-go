@@ -1,14 +1,24 @@
 package db
 
-import "github.com/go-pg/pg/v10"
+import (
+	"fmt"
+	"github.com/go-pg/pg/v10"
+	"log"
+)
 
 var DB *pg.DB
 
 func Connect() {
 	DB = pg.Connect(&pg.Options{
-		User:     "super_user",
-		Password: "admin_123",
-		Database: "task_manager_db",
+		User:     "postgres",
+		Password: "subhanshu",
+		Database: "postgres",
 		Addr:     "localhost:5432",
 	})
+
+	if DB == nil {
+		log.Fatal("Failed to connect to the database")
+	}
+
+	fmt.Println("Connected to the database")
 }

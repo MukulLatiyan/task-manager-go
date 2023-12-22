@@ -2,10 +2,9 @@ package models
 
 import "time"
 
-type Task struct {
+type Reminder struct {
 	ID          int       `json:"id"`
-	Title       string    `json:"title"`
+	TaskID      int       `json:"task_id"`
 	Description string    `json:"description"`
-	Priority    int       `json:"priority"`
 	DueDateTime time.Time `json:"due_date_time"`
 }
