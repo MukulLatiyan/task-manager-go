@@ -1,0 +1,391 @@
+{
+	"info": {
+		"_postman_id": "3652511d-d105-455d-adbe-50f161bec0de",
+		"name": "Task_Manager_Reminder_Go",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6757851"
+	},
+	"item": [
+		{
+			"name": "tasks",
+			"item": [
+				{
+					"name": "Create a new task",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin_123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "super_user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Call Mukul\",\n  \"description\": \"Discuss the MERN stack project\",\n  \"priority\": 3,\n  \"due_date_time\": \"2023-12-22T14:30:00Z\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tasks",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin_123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "super_user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get An Individual Task By Task ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin_123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "super_user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Task By Task ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin_123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "super_user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"priority\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/tasks/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tasks",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Task By Task ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin_123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "super_user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/tasks/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tasks",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reminders",
+			"item": [
+				{
+					"name": "Create a new task reminder",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin_123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "super_user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"task_id\": 3,\n  \"description\": \"Call Ajay at 11:00 pm on Monday\",\n  \"due_date_time\": \"2023-12-24T14:30:00Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/reminders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reminders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reminders",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin_123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "super_user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/reminders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reminders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reminder By Reminder ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin_123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "super_user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/reminders/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reminders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Reminder By Reminder ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin_123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "super_user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"priority\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/tasks/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tasks",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Reminder By Reminder ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin_123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "super_user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/reminders/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reminders",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
